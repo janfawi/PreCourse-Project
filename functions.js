@@ -19,8 +19,35 @@
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
 function sumOdds(numbers) {
-  // Your code here
+  let x = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 === 1) x += numbers[i];
+  }
+  return x;
 }
+
+// let sum = 0;
+// if (i=1; i<=numbers.length); {
+//   sum = sum + numbers[i];
+//   i++
+// }
+
+// let sum = 0;
+// let i = 0
+// while ( i < numbers.length ; (i % 2 === 1)) {
+//   sum = sum + numbers[i]
+//  i++
+// }
+
+//let i = 0;
+//while (numbers[i] % 2) {
+//numbers.splice(i, 1);
+// sum = sum + numbers[i];
+//  i++;
+//}
+// return sum;
+// Your code here
+// }
 
 // console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
 
@@ -38,6 +65,11 @@ function sumOdds(numbers) {
  */
 function characterCount(string, c) {
   // Your code here
+  let count = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i].toUpperCase() === c.toUpperCase()) count++;
+  }
+  return count;
 }
 
 // console.log(characterCount("Character Count is clever", "c"));
@@ -59,6 +91,11 @@ function characterCount(string, c) {
  */
 function differences(numbers) {
   // Your code here
+  let diffs = [];
+  for (let i = 1; i < numbers.length; i++) {
+    diffs.push(numbers[i] - numbers[i - 1]);
+  }
+  return diffs;
 }
 
 // console.log(differences([11, 35, 52, 14, 56]));
@@ -80,7 +117,13 @@ function differences(numbers) {
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
 function largestIncrement(numbers) {
-  // Your code here
+  let largest = 0;
+  let diff = 0;
+  for (let i = 1; i < numbers.length; i++) {
+    diff = numbers[i] - numbers[i - 1];
+    if (diff > largest) largest = diff;
+  }
+  return largest;
 }
 
 // console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
@@ -97,7 +140,11 @@ function largestIncrement(numbers) {
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
 function afterX(numbers, x) {
-  // Your code here
+  let index = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === x) index = i;
+  }
+  return numbers.slice(index + 1);
 }
 
 // console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
@@ -114,7 +161,7 @@ function afterX(numbers, x) {
  * Hint: Use string method .toUpperCase()
  */
 function abbreviate(firstName, lastName) {
-  // Your code here
+  return `${firstName[0]}${lastName[0]}`.toUpperCase();
 }
 
 // console.log(abbreviate("miss", "Stephane"));
@@ -130,8 +177,15 @@ function abbreviate(firstName, lastName) {
  *
  */
 function isUpperCase(string) {
-  // Your code here
+  return string === string.toUpperCase();
 }
+
+//   let count = 0;
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i].toUpperCase() === string.toUpperCase()) return true;
+//   }
+//   else return false;
+// }
 
 // console.log(isUpperCase("JCREW"));
 
@@ -146,7 +200,14 @@ function isUpperCase(string) {
  *
  */
 function elementInArray(numbers, x) {
-  // Your code here
+  let found = false;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === x) {
+      found = true;
+      break;
+    }
+  }
+  return found;
 }
 
 // console.log(elementInArray([5, 6, 7], 8));
@@ -162,8 +223,22 @@ function elementInArray(numbers, x) {
  *
  */
 function reverseString(string) {
-  // Your code here
+  let res = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    res += string[i];
+  }
+  return res;
 }
+
+//   let count = 0;
+//   for (let i = string.length; i >= 0 ; i--) {
+//    string[i].toUpperCase() === c.toUpperCase()) count++;
+//   }
+//   return count;
+// }
+
+//   // Your code here
+// }
 
 // console.log(reverseString("CODED"));
 
